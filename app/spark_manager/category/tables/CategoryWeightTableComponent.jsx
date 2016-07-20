@@ -3,15 +3,15 @@ var React = require('react')
 var ReactBSTable = require('react-bootstrap-table');
 var BootstrapTable = ReactBSTable.BootstrapTable;
 var TableHeaderColumn = ReactBSTable.TableHeaderColumn;
-var HTTP = require('../../app/http/HTTP.jsx');
-var Urls = require('../../app/urls/Urls.jsx');
+var HTTP = require('../../../../app/http/HTTP.jsx');
+var Urls = require('../../../../app/urls/Urls.jsx');
 
 var CategoryWeightTableComponent = React.createClass({
 
     getInitialState: function () {
         return {
             categories: this.props.categoriesData,
-            cellEditProp: {mode: "click", blurToSave: true, afterSaveCell: this.onAfterSaveCell},
+            cellEditProp: {mode: "click", blurToSave: true},
             selectRowProp: {mode: "checkbox", clickToSelect: true, onSelect: this.onRowSelect, bgColor: "#e69598"},
 
         };
@@ -20,12 +20,6 @@ var CategoryWeightTableComponent = React.createClass({
     onRowSelect: function (row, isSelected) {
         console.log(row);
         console.log("selected: " + isSelected)
-    },
-
-    onAfterSaveCell: function (row, cellName, cellValue) {
-        console.log("Save cell '" + cellName + "' with value '" + cellValue + "'");
-        console.log("Thw whole row :");
-        console.log(row);
     },
 
     addNewData: function (newObj) {

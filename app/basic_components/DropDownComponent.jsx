@@ -4,12 +4,8 @@ var Dropdown = React.createClass({
     getInitialState: function () {
         return {
             listVisible: false,
-            ids: [{id: "0001"},
-                {id: "0002"},
-                {id: "0003"},
-                {id: "0004"},
-                {id: "0005"}],
-            selected: {id: "0001"}
+            elements: this.props.elements,       
+            selected: this.props.selected
         };
     },
 
@@ -28,10 +24,9 @@ var Dropdown = React.createClass({
     },
 
     render: function () {
-        console.log(this.state.selected)
         return <div className={"dropdown-container" + (this.state.listVisible ? " show" : "")}>
             <div className={"dropdown-display" + (this.state.listVisible ? " clicked": "")} onClick={this.show}>
-                <span>{this.state.selected.id}</span>
+                <span>{this.state.selected.element}</span>
                 <i className="fa fa-angle-down"></i>
             </div>
             <div className="dropdown-list">
@@ -44,10 +39,11 @@ var Dropdown = React.createClass({
 
     renderListItems: function () {
         var items = [];
-        for (var i = 0; i < this.state.ids.length; i++) {
-            var item = this.state.ids[i];
+        console.log(this.state.elements);
+        for (var i = 0; i < this.state.elements.length; i++) {
+            var item = this.state.elements[i];
             items.push(<div onClick={this.select.bind(null, item)}>
-                <span >{item.id}</span>
+                <span >{item.element}</span>
             </div>);
         }
         return items;

@@ -7,7 +7,11 @@ var MenuItem = React.createClass({
     },
 
     render: function() {
-        return (<div className="menu-item" onClick={this.navigate.bind(this, this.props.hash)}>{this.props.children}</div>);
+        return (
+            <div className="menu-item" onClick={this.navigate.bind(this, this.props.hash)}>
+                {this.props.children}
+        </div>
+      );
     }
 });
 module.exports = MenuItem;

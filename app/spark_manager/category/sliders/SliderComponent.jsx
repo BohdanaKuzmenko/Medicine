@@ -24,7 +24,6 @@ var Slider = React.createClass({
         var value = parseInt(event.target.value);
         var categoryConfig = this.state.categoryConfig;
         var categoryLimit = this.state.categoriesLimits[categoryConfig.name];
-        console.log("cat limit " + categoryConfig.name + " : " + categoryLimit);
         categoryConfig.current = (value >= categoryLimit) ? categoryLimit : value;
         this.setState({
             categoryConfig: categoryConfig,

@@ -1,7 +1,7 @@
 var React = require('react');
-var Slider = require('../../app/sliders/SliderComponent.jsx');
-var HTTP = require('../../app/http/HTTP.jsx');
-var Urls = require('../../app/urls/Urls.jsx');
+var Slider = require('../../../../app/spark_manager/category/sliders/SliderComponent.jsx');
+var HTTP = require('../../../../app/http/HTTP.jsx');
+var Urls = require('../../../../app/urls/Urls.jsx');
 
 
 var CategoryWeightSliderComponent = React.createClass({
@@ -13,20 +13,15 @@ var CategoryWeightSliderComponent = React.createClass({
         }
     },
 
-
     componentDidUpdate: function () {
-        console.log("componentDidUpdate general slider");
-        console.log(this.props.categoriesLimits);
-        console.log(this.state.categoriesLimits);
-        if (this.props.categoriesData != this.state.categories ){
+        if (this.props.categoriesData != this.state.categories){
             this.setState({
                 categories: this.props.categoriesData,
-                // categoriesLimits: this.props.categoriesLimits
+                categoriesLimits: this.props.categoriesLimits
             });
 
         }
     },
-
 
     getTotalSlidersCount: function () {
         var totalSliderValue = 0;
@@ -37,24 +32,18 @@ var CategoryWeightSliderComponent = React.createClass({
     },
 
     updateMaxLimit: function (totalCount) {
-        console.log(totalCount)
         var maxLimit = 100 - totalCount;
         var limit_values = {};
-        console.log("-------")
         this.state.categories.forEach(function (item) {
             console.log(item)
             limit_values[item.name] = parseInt(item.current) + parseInt(maxLimit);
         });
-        console.log("update limit func ")
-        console.log(limit_values)
         this.setState({
             categoriesLimits: limit_values
         })
     },
 
     updateCategory: function (config) {
-        console.log("update category slider")
-        console.log(config);
         for (var i = 0; i < this.state.categories.length; i++) {
             if (this.state.categories[i].name == config.name) {
                 this.state.categories[i].current = config.current;
@@ -71,8 +60,8 @@ var CategoryWeightSliderComponent = React.createClass({
 
     render: function () {
         var self = this;
-        var names = this.state.categories;
-        var namesList = names.map(function (category) {
+        var categoriesList = this.state.categories;
+        var namesList = categoriesList.map(function (category) {
             return (
                 <div>
                     <h4>{category.name}</h4>
