@@ -12,7 +12,7 @@ var CategoryWeightTableComponent = React.createClass({
         return {
             categories: this.props.categoriesData,
             cellEditProp: {mode: "click", blurToSave: true},
-            selectRowProp: {mode: "checkbox", clickToSelect: true, onSelect: this.onRowSelect, bgColor: "#e69598"},
+            selectRowProp: {mode: "checkbox", clickToSelect: true, onSelect: this.onRowSelect, bgColor: "#C56557"},
 
         };
     },

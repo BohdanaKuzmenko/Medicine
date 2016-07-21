@@ -11,6 +11,7 @@ var Dropdown = React.createClass({
 
     select: function (item) {
         this.state.selected = item;
+
     },
 
     show: function () {
@@ -39,7 +40,6 @@ var Dropdown = React.createClass({
 
     renderListItems: function () {
         var items = [];
-        console.log(this.state.elements);
         for (var i = 0; i < this.state.elements.length; i++) {
             var item = this.state.elements[i];
             items.push(<div onClick={this.select.bind(null, item)}>

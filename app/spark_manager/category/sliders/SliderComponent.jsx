@@ -1,5 +1,5 @@
 var React = require('react');
-
+var InputRange = require('react-input-range');
 
 var Slider = React.createClass({
 
@@ -20,8 +20,7 @@ var Slider = React.createClass({
         }
     },
 
-    handleChange: function (event) {
-        var value = parseInt(event.target.value);
+    handleChange: function (component, value){
         var categoryConfig = this.state.categoryConfig;
         var categoryLimit = this.state.categoriesLimits[categoryConfig.name];
         categoryConfig.current = (value >= categoryLimit) ? categoryLimit : value;
@@ -35,14 +34,13 @@ var Slider = React.createClass({
         return (
             <div>
                 <p> Weight % (value: {this.state.categoryConfig.current})</p>
-                <input
-                    id="typeinp"
-                    type="range"
-                    min='0'
-                    max='100'
+
+                <InputRange
+                    minValue={0}
+                    maxValue={100}
                     value={this.state.categoryConfig.current}
                     onChange={this.handleChange}
-                    step="1"/>
+                />
             </div>
 
         );

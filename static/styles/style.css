@@ -1,9 +1,12 @@
-html{
-    height:100%;
+html {
+    height: 100%;
 }
-body{
-    height:100%;
+
+body {
+    height: 100%;
     position: relative;
+    font-family: 'Lato', sans-serif;
+!important;
 }
 
 .form {
@@ -12,11 +15,20 @@ body{
     width: 90%;
 }
 
+.ui.segment {
+    position: relative;
+    background: #FFF;
+    box-shadow: 0 0 0 0 rgba(34, 36, 38, .15);
+    margin: 1rem 0;
+    padding: 1em;
+    border-radius: .28571429rem;
+    border: 0px solid rgba(34, 36, 38, .15);
+}
 
 .modal-dialog {
-        width: 700px;
-        margin: 30px auto;
-    }
+    width: 700px;
+    margin: 30px auto;
+}
 
 #mn-wrapper {
     margin-top: 50px;
@@ -24,24 +36,28 @@ body{
     position: absolute;
     height: 100%;
 }
+
 .mn-sidebar {
     display: table-cell;
     position: relative;
     vertical-align: top;
     padding-bottom: 49px;
-    background: #272930;
+    background: #35383D;
     width: 216px;
     z-index: 2;
 }
+
 #mn-cont {
     display: table-cell;
     vertical-align: top;
     position: relative;
     padding: 0;
 }
+
 .container {
     margin-right: auto;
 }
+
 .cnt-mcont {
     background-color: #F6F6F6;
     color: inherit;
@@ -51,30 +67,33 @@ body{
     margin-top: 0;
     height: 101vh;
 }
+
 .mn-sidebar .mn-toggle {
     display: none;
     padding: 10px 0;
     text-align: center;
     cursor: pointer;
 }
+
 .mn-vnavigation {
     margin: 0 0 0 0;
     padding: 0;
     border-top: 1px solid #1a1c20;
     border-bottom: 1px solid #2f323a;
 }
+
 .mn-vnavigation li a {
     border-top: 1px solid #32353e;
     border-bottom: 1px solid #1a1c20;
     display: block;
     padding: 14px 18px 13px 15px;
-    color: #fff;
+    color: #bfc5c5;
     text-decoration: none;
     font-size: 12px;
     font-weight: 300;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
     white-space: nowrap;
 }
+
 .dropdown-submenu >
 .dropdown-menu {
     top: 0;
@@ -83,12 +102,14 @@ body{
     margin-left: -1px;
     height: 101vh;
     width: 216px;
-    background: #272930;
+    background: #35383D;
 }
+
 .dropdown-submenu:hover >
 .dropdown-menu {
     display: block;
 }
+
 .dropdown-submenu > a:after {
     display: block;
     content: " ";
@@ -102,20 +123,21 @@ body{
     margin-top: -15px;
     margin-right: -10px;
 }
+
 .dropdown-submenu:hover > a:after {
     border-left-color: #fff;
 }
 
-.mn-navblock li>a:hover, .mn-navblock li>a:focus {
-    color: #262626;
+.mn-navblock li > a:hover, .mn-navblock li > a:focus {
+    color: #ffffff!important;
     text-decoration: none;
-    background-color: #85bdde;
+    background-color: #35383D!important;
 }
-
 
 .dropdown-submenu.pull-left {
     float: none;
 }
+
 .dropdown-submenu.pull-left > .dropdown-menu {
     left: -100%;
     margin-left: 10px;
@@ -123,22 +145,24 @@ body{
     -moz-border-radius: 6px 0 6px 6px;
     border-radius: 6px 0 6px 6px;
 }
+
 ul {
     list-style: none;
 }
+
 ul.dropdown-menu.parent {
     margin-top: -1px;
 }
-.bottom-mn {
-    bottom:0px;
-    position:absolute;
-    width:100%;
-}
 
+.bottom-mn {
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+}
 
 /*HEADER*/
 .header {
-    background-color: #85bdde;
+    background-color: #35383D;
     height: 50px;
     padding-left: 10px;
     padding-top: 7px;
@@ -149,14 +173,34 @@ ul.dropdown-menu.parent {
     marginBottom: "1rem";
 }
 
+.modal-title, #myModalLabel {
+    color: #ffffff
+}
+
 .react-bs-table-del-btn {
-    background-color: #e69598 !important;
-    border-color: #e69598 !important;
+    background-color: #C56557 !important;
+    border-color: #C56557 !important;
 }
 
 .react-bs-table-add-btn {
-    background-color: #85bdde !important;
-    border-color: #85bdde !important;
+    background-color: #5069A2 !important;
+    border-color: #5069A2 !important;
+}
+
+.edit-button {
+    align-content: center;
+    background-color: #008141 !important;
+    height: 30px;
+    padding: 5% 0;
+}
+
+.write.icon {
+    color: white;
+}
+
+.edit-trigger-button {
+
+    background: #008141!important;
 }
 
 .react-bs-table-container {
@@ -166,13 +210,7 @@ ul.dropdown-menu.parent {
 
 .react-bs-table {
     margin: 5px -120px !important;
-}
-
-.edit-button {
-    align-content: center;
-    background-color: #98E698 !important;
-    height: 30px;
-    padding: 5% 0;
+    width: 100%;
 }
 
 .edit-button > .edit.icon {
@@ -185,7 +223,7 @@ ul.dropdown-menu.parent {
 
 .save-button {
     align-content: center;
-    background-color: white!important;
+    background-color: white !important;
     height: 30px;
     padding: 5% 0;
 }
@@ -285,7 +323,7 @@ button {
 
 .main-menu > div > .menu-item:hover {
     color: #243743;
-    background: #85bdde;
+    background: #35383D;
 }
 
 body {
@@ -422,7 +460,7 @@ dropdown > div > div.dropdown-list > div > div {
 
 dropdown > div > div.dropdown-list > div > div:hover {
     color: #243743;
-    background: #85bdde;
+    background: #35383D;
 }
 
 dropdown > div > div.dropdown-list > div > div.selected {
@@ -504,12 +542,12 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 input[type=range]:focus::-ms-fill-upper {
-    background: #85bdde;
+    background: #35383D;
 }
 
 /*MODAL WINDOW*/
 .modal-content {
-    background-color: #85bdde;
+    background-color: #35383D;
 }
 
 .modal-body {

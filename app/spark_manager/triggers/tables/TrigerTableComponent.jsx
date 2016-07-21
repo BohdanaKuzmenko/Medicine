@@ -3,12 +3,25 @@ var Modal = require('../../../../app/spark_manager/triggers/modal_windows/Trigge
 
 var TriggerTableComponent = React.createClass({
 
-    createModal: function(category){
-        console.log(category)
+    
+    createModal: function (category) {
+    },
+
+    transferDescription: function (name, descriptions) {
+        this.props.changeFunc(name, descriptions)
     },
     
+    getTotalWeight: function(category){
+        var total = 0;
+        category.map(function (description) {
+            total+=description.total;
+        });
+        return total;
+    },
+
     render: function () {
         var triggersElements = [];
+        var self = this;
         this.props.tableData.map(function (category) {
             var triggers = category.category.descriptions.map(
                 function (trigger_info) {
@@ -27,16 +40,18 @@ var TriggerTableComponent = React.createClass({
 
             triggersElements.push(<tr>
                 <td>
-                    <Modal categoryInformation={category.category}/>
+                    <Modal categoryInformation={category.category}
+                           changeFunc={(name,descriptions) => self.transferDescription(name,descriptions)}
+                    />
                 </td>
                 <td>{category.category.name}</td>
                 <td></td>
-                <td>{category.category.total_weight}</td>
+                <td>{self.getTotalWeight(category.category.descriptions)}</td>
                 <td></td>
                 <td></td>
             </tr>);
 
-            triggers.forEach(function(trigger){
+            triggers.forEach(function (trigger) {
                 triggersElements.push(trigger);
             });
 
@@ -44,7 +59,7 @@ var TriggerTableComponent = React.createClass({
 
         return (
             <div>
-                <table className="ui table striped celled">
+                <table className="ui table striped selectable celled">
                     <tbody>
                     <tr>
                         <th>Actions</th>

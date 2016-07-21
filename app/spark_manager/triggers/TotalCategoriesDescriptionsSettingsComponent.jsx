@@ -20,19 +20,16 @@ var TotalCategoriesDescriptionsSettingsComponent = React.createClass({
     },
 
     getDescriptionsWeightsLimits: function (descriptions) {
-        console.log('*TotalCategoriesDescriptionsSettingsComponent::getDescriptionsWeightsLimits');
         var totalWeight = this.getTotalWeight(descriptions);
         var limits = {};
         descriptions.map(function (description) {
             limits[description.description] = 100 - totalWeight + description['total']
         })
-        console.log(limits)
         return limits;
 
     },
 
     updateCategoryDescriptions: function (updatedCategory) {
-        console.log('*TotalCategoriesDescriptionsSettingsComponent::updateCategoryDescriptions');
         var tmpCategoryDescriptions = this.state.categoryDescriptions;
         tmpCategoryDescriptions.map(function (description) {
             if (description.description == updatedCategory.description) {
@@ -50,19 +47,12 @@ var TotalCategoriesDescriptionsSettingsComponent = React.createClass({
 
     },
 
-    testFunc: function (value) {
-        console.log('*TotalCategoriesDescriptionsSettingsComponent::testFunc');
-        console.log(value);
+    transferDescriptionWeight: function (value) {
         this.updateCategoryDescriptions(value)
     },
 
     componentDidUpdate: function () {
-        console.log('*TotalCategoriesDescriptionsSettingsComponent::componentDidUpdate');
-        console.log(this.state.categoryDescriptions);
-        console.log(this.state.categoryLimits);
         this.props.changeFunc(this.state.categoryDescriptions)
-
-
     },
 
     render: function () {
@@ -72,7 +62,7 @@ var TotalCategoriesDescriptionsSettingsComponent = React.createClass({
             return <CategoryDescriptionSettings
                 categoryDescription={description}
                 categoryLimits={self.state.categoryLimits}
-                changeFunc={(config) => self.testFunc(config)}
+                changeFunc={(config) => self.transferDescriptionWeight(config)}
             />
         });
         return <div>{ namesList }</div>

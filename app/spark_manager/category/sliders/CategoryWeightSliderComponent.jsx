@@ -68,6 +68,7 @@ var CategoryWeightSliderComponent = React.createClass({
                     <Slider categoryConfig={category}
                             categoriesLimits={self.state.categoriesLimits}
                             changeFunc={(config) => self.updateCategory(config)}/>
+                    <hr/>
                 </div>);
         });
         return <ul>{ namesList }</ul>

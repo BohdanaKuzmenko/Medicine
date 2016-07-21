@@ -20,9 +20,7 @@ var CategoryDescriptionSettingsComponent = React.createClass({
       }
     },
 
-    testFunc: function (value) {
-        console.log("*CategoryDescriptionSettingsComponent::testFunc");
-        console.log(value);
+    transferDescription: function (value) {
         this.props.changeFunc(value)
     },
 
@@ -39,11 +37,11 @@ var CategoryDescriptionSettingsComponent = React.createClass({
                         <div className="left eight wide floated column">
                             <SingleValuedSlider categoryDescription={this.state.categoryDescription}
                                                 categoryLimits={this.state.categoryLimits}
-                                                changeFunc={(config) => this.testFunc(config)}/>
+                                                changeDescriptionsWeightFunc={(config) => this.transferDescription(config)}/>
                         </div>
                         <div className="left eight wide floated column">
-                            <MultiValuedSlider lower_limit={this.state.categoryDescription.lower_limit}
-                                               upper_limit={this.state.categoryDescription.upper_limit}
+                            <MultiValuedSlider categoryDescription={this.state.categoryDescription}
+                                               changeTresholdFunc={(config) => this.transferDescription(config)}
                             />
                         </div>
                     </div>
